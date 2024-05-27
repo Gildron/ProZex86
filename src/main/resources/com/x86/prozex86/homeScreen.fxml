@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<!--suppress ALL -->
+
+<BorderPane fx:id="root" styleClass="background" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.x86.prozex86.HomeScreenController">
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10" />
+    </padding>
+
+    <top>
+        <HBox>
+            <VBox fx:id="vBox_progressBar_main" alignment="CENTER" spacing="${root.width*0.01}">
+                <HBox>
+                    <ProgressBar fx:id="progressBar_main" prefHeight="${root.height*0.12}" prefWidth="${root.width*1}">
+                        <padding>
+                            <Insets bottom="10" left="50" right="50" top="25" />
+                        </padding>
+                    </ProgressBar>
+                    <ImageView fx:id="imageViewTutorial" fitHeight="80" fitWidth="80" onMouseClicked="#switchSceneTutorial">
+                        <Image fx:id="imageTutorial" url="@images/scrollBigIcon.png" />
+                    </ImageView>
+                    <ImageView fx:id="imageViewSettings" fitHeight="80" fitWidth="80" onMouseClicked="#switchSceneSettings">
+                        <Image fx:id="imageSettings" url="@images/Pizzarad.png" />
+                    </ImageView>
+                </HBox>
+
+
+                <HBox fx:id="hBox_progressBarLabels_main" alignment="CENTER" prefWidth="${root.width*1}" spacing="${root.width*0.004}" styleClass="hBox-labelProgressBar">
+                    <Label fx:id="label_progressBar_bytes_value" styleClass="label-progressBar" text="Byte" />
+                </HBox>
+            </VBox>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fx:id="scrollGameField" hbarPolicy="NEVER" pannable="true" vbarPolicy="NEVER">
+            <AnchorPane fx:id="gameField" prefHeight="2000" prefWidth="2000">
+                <StackPane fx:id="stackPane_CPU" layoutX="1000" layoutY="1000" maxHeight="${root.height*0.3125}" maxWidth="${root.width*0.2}">
+                    <ImageView fx:id="imageView_cpu" fitHeight="${root.height*0.3125}" fitWidth="${root.width*0.2}">
+                        <image>
+                            <Image fx:id="image_cpu" url="@images/CPU.png" />
+                        </image>
+                    </ImageView>
+                    <Button fx:id="button_cpu" onAction="#switchSceneCPUGame" prefHeight="${root.height*0.04}" prefWidth="${root.width*0.08}" styleClass="buttonCust" text="Play!" />
+                </StackPane>
+
+
+                <StackPane fx:id="stackPane_RAM" layoutX="1600" layoutY="1000" maxHeight="${root.height*0.3125}" maxWidth="${root.width*0.12}">
+                    <ImageView fx:id="imageView_ram" fitHeight="${root.height*0.3125}" fitWidth="${root.width*0.12}">
+                        <image>
+                            <Image fx:id="image_ram" url="@images/RAM.png" />
+                        </image>
+                    </ImageView>
+                    <Button fx:id="button_ram" onAction="#switchSceneRAMGame" prefHeight="${root.height*0.04}" prefWidth="${root.width*0.08}" styleClass="buttonCust" text="Play!" />
+                </StackPane>
+            </AnchorPane>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <Button fx:id="button_exit" onAction="#exit" prefHeight="${root.height*0.065}" prefWidth="${root.width*0.16}" styleClass="buttonCust" text="Verlassen" BorderPane.alignment="BOTTOM_RIGHT">
+            <padding>
+                <Insets bottom="5" left="5" right="5" top="5" />
+            </padding>
+        </Button>
+    </bottom>
+
+    <left>
+    </left>
+
+    <right>
+        <ScrollPane hbarPolicy="NEVER" maxWidth="${root.width*0.26}" vbarPolicy="NEVER">
+            <VBox fx:id="vBox_upgrades" alignment="CENTER_RIGHT" spacing="${root.height*0.005}">
+                <HBox fx:id="hBox_SubScreen_CPU" styleClass="subScreen_Component">
+                    <ImageView fx:id="imageView_UpgradesSubScreen_CPU" fitHeight="${root.height*0.15625}" fitWidth="${root.width*0.1}" onMouseClicked="#centerOnCPU">
+                        <Image fx:id="image_UpgradesSubScreen_CPU" url="@images/CPU.png" />
+                    </ImageView>
+                    <VBox fx:id="vBox_UpgradesSubScreen_CPU" maxWidth="${root.width*0.15}">
+                        <HBox fx:id="hBox_UpgradesSubScreen_Level_CPU">
+                            <Label fx:id="label_UpgradesSubScreen_CPU_Lvl" prefHeight="${root.height*0.05}" prefWidth="${root.width*0.08}" styleClass="label_UpgradesSubScreen" text="Level" textAlignment="LEFT" />
+                            <Label fx:id="label_UpgradesSubScreen_CPU_LvlValue" prefHeight="${root.height*0.05}" prefWidth="${root.width*0.07}" styleClass="label_UpgradesSubScreen" text="1" textAlignment="LEFT" />
+                        </HBox>
+                        <StackPane fx:id="stackPane_UpgradesSubScreen_ProgressBar_CPU_Exp" maxWidth="${root.width*0.15}" prefHeight="${root.height*0.05}" styleClass="subScreen_ProgressBar_EXP">
+                            <ProgressBar fx:id="progressBar_UpgradesSubScreen_CPU_Exp" prefHeight="${root.height*0.05}" prefWidth="${root.width*0.15}" />
+                            <HBox alignment="CENTER" maxWidth="${root.width*0.15}">
+                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_CPU_Exp_value1" styleClass="label-progressBar_UpgradesSubScreen" text="w1" />
+                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_CPU_Exp_delimiter" styleClass="label-progressBar_UpgradesSubScreen" text="/" />
+                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_CPU_Exp_value2" styleClass="label-progressBar_UpgradesSubScreen" text="w2" />
+                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_CPU_Exp_EXP" styleClass="label-progressBar_UpgradesSubScreen" text="EXP" />
+                            </HBox>
+                        </StackPane>
+                        <HBox>
+                            <Button onAction="#buyExpCpu" prefHeight="${root.height*0.05}" prefWidth="${root.width*0.075}" styleClass="buttonCust" text="1 EXP" />
+                            <Button onAction="#buyMaxExpCpu" prefHeight="${root.height*0.05}" prefWidth="${root.width*0.075}" styleClass="buttonCust" text="MAX" />
+                        </HBox>
+                    </VBox>
+                </HBox>
+
+                <HBox fx:id="hBox_SubScreen_RAM" styleClass="subScreen_Component">
+                    <ImageView fx:id="imageView_UpgradesSubScreen_RAM" fitHeight="${root.height*0.15625}" fitWidth="${root.width*0.1}" onMouseClicked="#centerOnRAM">
+                        <Image fx:id="image_UpgradesSubScreen_RAM" url="@images/RAM.png" />
+                    </ImageView>
+                    <VBox fx:id="vBox_UpgradesSubScreen_RAM" maxWidth="${root.width*0.15}">
+                        <HBox fx:id="hBox_UpgradesSubScreen_Level_RAM">
+                            <Label fx:id="label_UpgradesSubScreen_RAM_Lvl" prefHeight="${root.height*0.05}" prefWidth="${root.width*0.08}" styleClass="label_UpgradesSubScreen" text="Level" textAlignment="LEFT" />
+                            <Label fx:id="label_UpgradesSubScreen_RAM_LvlValue" prefHeight="${root.height*0.05}" prefWidth="${root.width*0.07}" styleClass="label_UpgradesSubScreen" text="1" textAlignment="LEFT" />
+                        </HBox>
+                        <StackPane fx:id="stackPane_UpgradesSubScreen_ProgressBar_RAM_Exp" maxWidth="${root.width*0.15}" prefHeight="${root.height*0.05}">
+                            <ProgressBar fx:id="progressBar_UpgradesSubScreen_RAM_Exp" prefHeight="${root.height*0.05}" prefWidth="${root.width*0.15}" styleClass="subScreen_ProgressBar_EXP" />
+                            <HBox alignment="CENTER" maxWidth="${root.width*0.15}">
+                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_RAM_Exp_value1" styleClass="label-progressBar_UpgradesSubScreen" text="w1" />
+                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_RAM_Exp_delimiter" styleClass="label-progressBar_UpgradesSubScreen" text="/" />
+                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_RAM_Exp_value2" styleClass="label-progressBar_UpgradesSubScreen" text="w2" />
+                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_RAM_Exp_EXP" styleClass="label-progressBar_UpgradesSubScreen" text="EXP" />
+                            </HBox>
+                        </StackPane>
+                        <HBox>
+                            <Button onAction="#buyExpRam" prefHeight="${root.height*0.05}" prefWidth="${root.width*0.075}" styleClass="buttonCust" text="1 EXP" />
+                            <Button onAction="#buyMaxExpRam" prefHeight="${root.height*0.05}" prefWidth="${root.width*0.075}" styleClass="buttonCust" text="MAX" />
+                        </HBox>
+
+                    </VBox>
+                </HBox>
+
+                <HBox fx:id="hBox_SubScreen_STORAGE" styleClass="subScreen_Component">
+                    <ImageView fx:id="imageView_UpgradesSubScreen_STORAGE" fitHeight="${root.height*0.15625}" fitWidth="${root.width*0.1}" onMouseClicked="#centerOnStorage">
+                        <Image fx:id="image_UpgradesSubScreen_STORAGE" url="@images/hard-drive-device.png" />
+                    </ImageView>
+                    <VBox fx:id="vBox_UpgradesSubScreen_STORAGE" maxWidth="${root.width*0.15}">
+                        <HBox fx:id="hBox_UpgradesSubScreen_Level_STORAGE">
+                            <Label fx:id="label_UpgradesSubScreen_STORAGE_Lvl" prefHeight="${root.height*0.05}" prefWidth="${root.width*0.08}" styleClass="label_UpgradesSubScreen" text="Level" textAlignment="LEFT" />
+                            <Label fx:id="label_UpgradesSubScreen_STORAGE_LvlValue" prefHeight="${root.height*0.05}" prefWidth="${root.width*0.07}" styleClass="label_UpgradesSubScreen" text="1" textAlignment="LEFT" />
+                        </HBox>
+                        <StackPane fx:id="stackPane_UpgradesSubScreen_ProgressBar_STORAGE_Exp" maxWidth="${root.width*0.15}" prefHeight="${root.height*0.05}" styleClass="subScreen_ProgressBar_EXP">
+                            <ProgressBar fx:id="progressBar_UpgradesSubScreen_STORAGE_Exp" prefHeight="${root.height*0.05}" prefWidth="${root.width*0.15}" />
+                            <HBox alignment="CENTER" maxWidth="${root.width*0.15}">
+                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_STORAGE_Exp_value1" styleClass="label-progressBar_UpgradesSubScreen" text="w1" />
+                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_STORAGE_Exp_delimiter" styleClass="label-progressBar_UpgradesSubScreen" text="/" />
+                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_STORAGE_Exp_value2" styleClass="label-progressBar_UpgradesSubScreen" text="w2" />
+                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_STORAGE_Exp_EXP" styleClass="label-progressBar_UpgradesSubScreen" text="EXP" />
+                            </HBox>
+                        </StackPane>
+                        <HBox>
+                            <Button onAction="#buyExpStorage" prefHeight="${root.height*0.05}" prefWidth="${root.width*0.075}" styleClass="buttonCust" text="1 EXP" />
+                            <Button onAction="#buyMaxExpStorage" prefHeight="${root.height*0.05}" prefWidth="${root.width*0.075}" styleClass="buttonCust" text="MAX" />
+                        </HBox>
+                    </VBox>
+                </HBox>
+
+                <!--                <HBox fx:id="hBox_SubScreen_GPU" styleClass="subScreen_Component">-->
+                <!--                    <ImageView fx:id="imageView_UpgradesSubScreen_GPU" fitWidth="${root.width*0.1}"-->
+                <!--                               fitHeight="${root.height*0.15625}" onMouseClicked="#centerOnGPU">-->
+                <!--                        <Image fx:id="image_UpgradesSubScreen_GPU" url="@images/GPU.png"/>-->
+                <!--                    </ImageView>-->
+                <!--                    <VBox fx:id="vBox_UpgradesSubScreen_GPU" maxWidth="${root.width*0.15}">-->
+                <!--                        <HBox fx:id="hBox_UpgradesSubScreen_Level_GPU">-->
+                <!--                            <Label fx:id="label_UpgradesSubScreen_GPU_Lvl" text="Level"-->
+                <!--                                   styleClass="label_UpgradesSubScreen" textAlignment="LEFT"-->
+                <!--                                   prefWidth="${root.width*0.08}" prefHeight="${root.height*0.05}"/>-->
+                <!--                            <Label fx:id="label_UpgradesSubScreen_GPU_LvlValue" text="1"-->
+                <!--                                   styleClass="label_UpgradesSubScreen" textAlignment="LEFT"-->
+                <!--                                   prefWidth="${root.width*0.07}" prefHeight="${root.height*0.05}"/>-->
+                <!--                        </HBox>-->
+                <!--                        <StackPane fx:id="stackPane_UpgradesSubScreen_ProgressBar_GPU_Exp"-->
+                <!--                                   styleClass="subScreen_ProgressBar_EXP" maxWidth="${root.width*0.15}"-->
+                <!--                                   prefHeight="${root.height*0.05}">-->
+                <!--                            <ProgressBar fx:id="progressBar_UpgradesSubScreen_GPU_Exp"-->
+                <!--                                         prefWidth="${root.width*0.15}" prefHeight="${root.height*0.05}"/>-->
+                <!--                            <HBox maxWidth="${root.width*0.15}" alignment="CENTER">-->
+                <!--                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_GPU_Exp_value1" text="w1"-->
+                <!--                                       styleClass="label-progressBar_UpgradesSubScreen"/>-->
+                <!--                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_GPU_Exp_delimiter" text="/"-->
+                <!--                                       styleClass="label-progressBar_UpgradesSubScreen"/>-->
+                <!--                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_GPU_Exp_value2" text="w2"-->
+                <!--                                       styleClass="label-progressBar_UpgradesSubScreen"/>-->
+                <!--                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_GPU_Exp_EXP" text="EXP"-->
+                <!--                                       styleClass="label-progressBar_UpgradesSubScreen"/>-->
+                <!--                            </HBox>-->
+                <!--                        </StackPane>-->
+                <!--                        <HBox>-->
+                <!--                            <Button styleClass="buttonCust" prefWidth="${root.width*0.075}"-->
+                <!--                                    prefHeight="${root.height*0.05}"-->
+                <!--                                    text="1 EXP" onAction="#buyExpGPU"/>-->
+                <!--                            <Button styleClass="buttonCust" prefWidth="${root.width*0.075}"-->
+                <!--                                    prefHeight="${root.height*0.05}"-->
+                <!--                                    text="MAX" onAction="#buyMaxExpGPU"/>-->
+                <!--                        </HBox>-->
+                <!--                    </VBox>-->
+                <!--                </HBox>-->
+
+                <!--                <HBox fx:id="hBox_SubScreen_PSU" styleClass="subScreen_Component">-->
+                <!--                    <ImageView fx:id="imageView_UpgradesSubScreen_PSU" fitWidth="${root.width*0.1}"-->
+                <!--                               fitHeight="${root.height*0.15625}" onMouseClicked="#centerOnPSU">-->
+                <!--                        <Image fx:id="image_UpgradesSubScreen_PSU" url="@images/psu.png"/>-->
+                <!--                    </ImageView>-->
+                <!--                    <VBox fx:id="vBox_UpgradesSubScreen_PSU" maxWidth="${root.width*0.15}">-->
+                <!--                        <HBox fx:id="hBox_UpgradesSubScreen_Level_PSU">-->
+                <!--                            <Label fx:id="label_UpgradesSubScreen_PSU_Lvl" text="Level"-->
+                <!--                                   styleClass="label_UpgradesSubScreen" textAlignment="LEFT"-->
+                <!--                                   prefWidth="${root.width*0.08}" prefHeight="${root.height*0.05}"/>-->
+                <!--                            <Label fx:id="label_UpgradesSubScreen_PSU_LvlValue" text="1"-->
+                <!--                                   styleClass="label_UpgradesSubScreen" textAlignment="LEFT"-->
+                <!--                                   prefWidth="${root.width*0.07}" prefHeight="${root.height*0.05}"/>-->
+                <!--                        </HBox>-->
+                <!--                        <StackPane fx:id="stackPane_UpgradesSubScreen_ProgressBar_PSU_Exp"-->
+                <!--                                   styleClass="subScreen_ProgressBar_EXP" maxWidth="${root.width*0.15}"-->
+                <!--                                   prefHeight="${root.height*0.05}">-->
+                <!--                            <ProgressBar fx:id="progressBar_UpgradesSubScreen_PSU_Exp"-->
+                <!--                                         prefWidth="${root.width*0.15}" prefHeight="${root.height*0.05}"/>-->
+                <!--                            <HBox maxWidth="${root.width*0.15}" alignment="CENTER">-->
+                <!--                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_PSU_Exp_value1" text="w1"-->
+                <!--                                       styleClass="label-progressBar_UpgradesSubScreen"/>-->
+                <!--                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_PSU_Exp_delimiter" text="/"-->
+                <!--                                       styleClass="label-progressBar_UpgradesSubScreen"/>-->
+                <!--                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_PSU_Exp_value2" text="w2"-->
+                <!--                                       styleClass="label-progressBar_UpgradesSubScreen"/>-->
+                <!--                                <Label fx:id="label_UpgradesSubScreen_ProgressBar_PSU_Exp_EXP" text="EXP"-->
+                <!--                                       styleClass="label-progressBar_UpgradesSubScreen"/>-->
+                <!--                            </HBox>-->
+                <!--                        </StackPane>-->
+                <!--                        <HBox>-->
+                <!--                            <Button styleClass="buttonCust" prefWidth="${root.width*0.075}"-->
+                <!--                                    prefHeight="${root.height*0.05}"-->
+                <!--                                    text="1 EXP" onAction="#buyExpPSU"/>-->
+                <!--                            <Button styleClass="buttonCust" prefWidth="${root.width*0.075}"-->
+                <!--                                    prefHeight="${root.height*0.05}"-->
+                <!--                                    text="MAX" onAction="#buyMaxExpPSU"/>-->
+                <!--                        </HBox>-->
+                <!--                    </VBox>-->
+                <!--                </HBox>-->
+            </VBox>
+        </ScrollPane>
+    </right>
+</BorderPane>

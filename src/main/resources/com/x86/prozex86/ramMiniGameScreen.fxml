@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane fx:id="root"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.x86.prozex86.RAMController"
+            stylesheets="@css/style.css"
+            styleClass="background"
+            onKeyPressed="#GoHomeOnEscPressed"
+>
+    <padding>
+        <Insets top="10" left="10" right="10" bottom="10"/>
+    </padding>
+
+    <center>
+        <VBox fx:id="vBox_RAMMinigame_center" style="-fx-background-color: darkgray" alignment="CENTER_LEFT" spacing="${root.width*0.01}">
+            <HBox fx:id="hBox_RAMMinigame_lblZiffernfolge" spacing="${root.width*0.01}">
+                <Label fx:id="label_RAMMinigame_ziffernfolge1" text="Ziffernfolge:" styleClass="label_RAMMinigame"/>
+                <Label fx:id="label_RAMMinigame_ziffernfolge2" text="1234" styleClass="label_RAMMinigame"/>
+            </HBox>
+            <Label fx:id="label_hint" text="!Merke dir die Ziffernfolge, bevor der Timer auf 0 ist!" styleClass="label_RAMMinigame"/>
+            <Label fx:id="timer" text="10" styleClass="label_RAMMinigame"/>
+            <HBox fx:id="hBox_RAMMinigame_userInput" spacing="${root.width*0.01}">
+                <Label fx:id="label_hint_userInput" text="Ziffernfolge eingeben!" styleClass="label_RAMMinigame"/>
+                <TextField fx:id="textField_RAMMinigame_userInput" />
+
+            </HBox>
+            <HBox fx:id="hBox_RAMMinigame_checkButton" alignment="CENTER_LEFT" spacing="${root.width*0.01}">
+                <padding>
+                    <Insets left="30"/>
+                </padding>
+                <Button fx:id="button_RAMMinigame_check" onAction="#checkResult" prefWidth="${root.width*0.08}" prefHeight="${root.height*0.04}"
+                        text="Check" styleClass="buttonCust"/>
+
+                <ImageView fx:id="imageView_RAMMinigame_true"  fitWidth="${root.width*0.05}" fitHeight="${root.height*0.078125}">
+                    <image>
+                        <Image fx:id="image_true" url="@images/accept.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="imageView_RAMMinigame_false"  fitWidth="${root.width*0.05}" fitHeight="${root.height*0.078125}">
+                    <image>
+                        <Image fx:id="image_false" url="@images/error.png"/>
+                    </image>
+                </ImageView>
+            </HBox>
+        </VBox>
+    </center>
+
+    <top>
+    </top>
+
+    <left>
+       <VBox alignment="CENTER">
+           <ImageView fx:id="imageView_RAMMinigame_ramImage" fitWidth="${root.width*0.12}" fitHeight="${root.height*0.3125}">
+               <image>
+                   <Image fx:id="image_ramImage" url="@images/RAM.png"/>
+               </image>
+           </ImageView>
+       </VBox>
+    </left>
+
+    <right>
+    </right>
+
+    <top>
+    </top>
+
+    <bottom>
+        <Button fx:id="button_homescreen" onAction="#returnHome" prefWidth="${root.width*0.16}" prefHeight="${root.height*0.065}"
+                text="Zurück" styleClass="buttonCust" BorderPane.alignment="BOTTOM_LEFT">
+            <padding>
+                <Insets top="5" left="5" right="5" bottom="5"/>
+            </padding>
+        </Button>
+    </bottom>
+
+</BorderPane>

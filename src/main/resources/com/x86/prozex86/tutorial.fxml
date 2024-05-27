@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane fx:id="root"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.x86.prozex86.TutorialController"
+            stylesheets="@css/style.css" onKeyPressed="#GoHomeOnEscPressed"
+
+>
+    <padding>
+        <Insets top="10" left="10" right="10" bottom="50"/>
+    </padding>
+
+    <top>
+        <Label fx:id="headline" prefWidth="${root.width}" prefHeight="${root.height*0.1}" styleClass="tutorial_headline"
+               alignment="CENTER" textAlignment="CENTER" text="Spielprinzip"/>
+    </top>
+    <center>
+
+        <VBox maxWidth="${root.width*0.6}">
+            <TextArea fx:id="textArea" maxWidth="${root.width*0.6}" styleClass="tutorial_textArea" editable="false"
+                      text="Hey, willkommen zu unserem Idle-Hardware-Components-Simulator-Game ProZex86. Hier geht es darum, deine Computerkomponenten zu verbessern, damit du in kürzerer Zeit mehr Bytes generiert kannst. Mit den Bytes wiederum kannst du dir Erfahrung (EXP) für deine Komponenten kaufen, damit diese das nächste Level erreichen. Ein EXP kostet 16 Bytes. Du hast außerdem die Möglichkeit über Minigames die EXP deiner Komponenten zu erhöhen. Die CPU produziert mit höherem Level schneller Bytes. Der RAM erzeugt mit höherem Level mehr Bytes pro CPU Zyklus. Der Speicher erlaubt es dir, immer mehr Bytes zu speichern."
+            />
+
+            <TextArea fx:id="textArea2" maxWidth="${root.width*0.6}" styleClass="tutorial_textArea" editable="false"
+                      wrapText="true"
+                      text="In dem Haupmenü kann man zu den einzelnen Komponenten navigieren indem man auf die Bilder in dem Levelmanager auf der rechten Seite klickt."/>
+        </VBox>
+
+    </center>
+    <bottom>
+        <Button fx:id="button_homescreen" onAction="#returnHome" prefWidth="${root.width*0.16}"
+                prefHeight="${root.height*0.065}"
+                text="Zurück" styleClass="buttonCust" alignment="CENTER" BorderPane.alignment="BOTTOM_CENTER">
+            <padding>
+                <Insets top="5" left="5" right="5" bottom="5"/>
+            </padding>
+        </Button>
+    </bottom>
+</BorderPane>

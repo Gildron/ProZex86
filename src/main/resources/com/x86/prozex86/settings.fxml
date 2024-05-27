@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.x86.prozex86.SettingsController" stylesheets="@css/style.css" styleClass="settings-background" onKeyPressed="#GoHomeOnEscPressed">
+    <TabPane tabClosingPolicy="UNAVAILABLE">
+        <Tab fx:id="soundSettings" text="Soundeinstellungen">
+            <VBox alignment="CENTER_LEFT" spacing="20">
+                <padding>
+                    <Insets top="25" left="50" right="50" bottom="10"/>
+                </padding>
+                <RadioButton fx:id="soundsettings_muteRadioButton" onAction="#setMutedOrUnmuted" text="Stummschalten" />
+                <HBox>
+                    <Label text="Lautstärke:" />
+                    <Slider fx:id="soundsettings_volumeSlider" prefWidth="${root.width*0.5}" styleClass="slider_settings">
+
+                    </Slider>
+                </HBox>
+            </VBox>
+        </Tab>
+        <Tab fx:id="secretDeveloperSettings" text="Geheime Developer Einstellungen">
+            <VBox alignment="CENTER_LEFT" spacing="20">
+                <padding>
+                    <Insets top="25" left="50" right="50" bottom="10"/>
+                </padding>
+                <RadioButton text="Enable Developer Options" />
+                <HBox>
+                    <Label text="CPU Level: "/>
+                    <TextField fx:id="cpuLevelInput" styleClass="text-field_settings"/>
+                </HBox>
+                <HBox>
+                    <Label text="RAM Level:" />
+                    <TextField fx:id="ramLevelInput" styleClass="text-field_settings"/>
+                </HBox>
+                <HBox>
+                    <Label text="SSD Level: " />
+                    <TextField fx:id="storageLevelInput" styleClass="text-field_settings"/>
+                </HBox>
+
+
+            </VBox>
+
+        </Tab>
+    </TabPane>
+
+    <Button layoutX="20.0" layoutY="360.0" onAction="#returnHome" prefHeight="${root.height*0.065}" prefWidth="${root.width*0.16}" styleClass="buttonCust" text="Zurück" AnchorPane.bottomAnchor="14.0" />
+
+
+</AnchorPane>

@@ -1,0 +1,148 @@
+.background {
+    -fx-background-color: "F4F9FF";
+    -fx-padding: 20 20 20 20;
+    -fx-spacing: 20;
+}
+.userElements{
+    -fx-background-color: "F4F9FF";
+    -fx-padding: 20 20 20 20;
+}
+
+.selection{
+    -fx-background-color:"D03030";
+}
+
+.buttonCust {
+    -fx-background-color:
+            linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
+            linear-gradient(#020b02, #3a3a3a),
+            linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),
+            linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%),
+            linear-gradient(#777777 0%, #606060 50%, #505250 51%, #2a2b2a 100%);
+    -fx-background-insets: 0,1,4,5,6;
+    -fx-background-radius: 9,8,5,4,3;
+    -fx-padding: 10 30 10 30;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);
+}
+.buttonCust Text {
+    -fx-effect: dropshadow( one-pass-box , black , 0, 0.0 , 0 , -1 );
+}
+.buttonCust:pressed {
+    -fx-padding: 12 30 8 30;
+    -fx-background-insets: 1 0 0 0,1 0 1 0, 1 0 2 0, 1 0 3 0;
+}
+.buttonCust:hover {
+    -fx-background-color:
+            linear-gradient(to right, #008C45 33.3%, #F4F9FF 33.3%, #F4F9FF 66.6%, #CD212A 66.6%);
+    -fx-text-fill: black;
+}
+
+.AnchorElement {
+    -fx-background-color: "999999";
+    -fx-padding: 30 10 30 10;
+}
+
+.label{
+    -fx-font-size: 35;
+    -fx-padding: 0 30 0 30;
+}
+.text-field_settings{
+    -fx-font-size: 35;
+    -fx-padding: 0 30 0 30;
+    -fx-pref-width: 150;
+}
+.slider_settings{
+    -fx-font-size: 35;
+    -fx-padding: 0 30 0 30;
+}
+.radio-button{
+    -fx-font-size: 25;
+    -fx-padding: 10 30 0 30;
+}
+
+.button-upgrade{
+    -fx-font-size: 7;
+}
+.tutorial_textArea , .tutorial_textArea .scroll-pane, .tutorial_textArea .scroll-pane .viewport, .tutorial_textArea .scroll-pane .content {
+    -fx-background-color: transparent ;
+}
+.label-progressBar{
+    -fx-padding: 0 0 0 0;
+}
+#progressBar_main > .track {
+    -fx-background-color: #000;
+}
+#progressBar_main > .bar {
+    /* -fx-background-color:
+          linear-gradient(to right, #008C45 33.3%, #F4F9FF 33.3%, #F4F9FF 66.6%, #CD212A 66.6%); */
+    -fx-background-image: url(../images/matrix.gif);
+    -fx-background-size: contain;
+}
+.hBox-labelProgressBar{
+    -fx-background-color: LightGray;
+}
+
+.label_UpgradesSubScreen{
+    -fx-font-size: 25;
+    -fx-background-color: darkgray;
+}
+
+.subScreen_Component{
+    -fx-background-color: gray;
+    -fx-border-color: black;
+    -fx-border-style: dashed;
+    -fx-border-radius: 2;
+    -fx-border-width: 5;
+}
+
+.subScreen_upgrades_headline{
+    -fx-font-size: 35;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+
+.label-progressBar_UpgradesSubScreen{
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-padding: 0 2 2 0;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}
+.subScreen_ProgressBar_EXP{
+    -fx-background-color: green;
+    -fx-background-size: contain;
+}
+.label_RAMMinigame {
+    -fx-font-size: 25;
+}
+
+.tutorial_headline{
+    -fx-font-size: 45;
+    -fx-padding: 75 30 30 30;
+    -fx-pref-width: 150;
+    -fx-font-weight: bold;
+}
+
+.tutorial_textArea{
+    -fx-font-size: 25;
+    -fx-padding: 20 20 20 20;
+}
+.slider_settings .track {
+    -fx-background-color: #000000;
+    -fx-background-insets: 0 0 -1 0, 0, 1;
+    -fx-background-radius: 0.25em, 0.25em, 0.166667em; /* 3 3 2 */
+    -fx-padding: 0.25em; /* 3 */
+}
+/*#settingsButton{*/
+/*    -fx-background-color:transparent;*/
+/*    -fx-border-color:transparent;*/
+/*    -fx-text-fill:transparent;*/
+/*}*/
+.settings-background {
+    -fx-background-color: #fff;
+}
